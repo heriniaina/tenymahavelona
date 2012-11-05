@@ -208,13 +208,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	private String getDbPath() {
 		if(dbPath == null) {
+			dbPath = DB_PATH;
+			/*
 			String state = Environment.getExternalStorageState();
 			if (Environment.MEDIA_MOUNTED.equals(state)) {
-				dbPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.baiboly.katolika/db";
+				dbPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.baiboly.katolika/db/";
 			}
 			else {
 				dbPath = DB_PATH;
 			}
+			*/
 		}
 		
 		return dbPath;

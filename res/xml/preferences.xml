@@ -21,7 +21,7 @@
     <PreferenceCategory
             android:title="Preferences">
         
-        <PreferenceScreen
+        <!-- <PreferenceScreen
             android:title="Languages"
             android:summary="Select languages">
            	<ListPreference
@@ -38,7 +38,7 @@
 	           android:defaultValue="-1"
 	           android:entries="@array/sec_languages"
 	           android:entryValues="@array/sec_language_values" />
-        </PreferenceScreen>
+        </PreferenceScreen> -->
         
         <ListPreference
 	           android:title="Display Layout"
