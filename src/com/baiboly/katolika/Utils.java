@@ -74,7 +74,7 @@ public class Utils {
         "[39, 'Jonasa', 4, 'Jonah']," + 
         "[40, 'Mikea', 7, 'Micah']," + 
         "[41, 'Nahoma', 3, 'Nahum']," + 
-        "[42, 'Habakoka', 3, 'Habakkuk']," +
+        "[42, 'Habak\u00f2ka', 3, 'Habakkuk']," +
         "[43, 'Zefania', 3, 'Sofonia']," + 
         "[44, 'Akjea', 2, 'Haggai']," + 
         "[45, 'Zakaria', 14, 'Zechariah']," +
@@ -105,5 +105,5 @@ public class Utils {
         "[70, '2 Joany', 1, '2 John']," + 
         "[71, '3 Joany', 1, '3 John']," + 
         "[72, 'Joda', 1, 'Jude']," +
-        "[73, 'Fanambarana', 22, 'Revelation']]";
+        "[73, 'Fanambar\u00e0na', 22, 'Revelation']]";
     }
