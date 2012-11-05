@@ -27,14 +27,14 @@
            	<ListPreference
 	           android:title="Primary Language"
 	           android:summary="Select primary language to display"
-	           android:key="com.jeesmon.malayalambible.language.primary"
+	           android:key="com.baiboly.katolika.language.primary"
 	           android:defaultValue="0"
 	           android:entries="@array/languages"
 	           android:entryValues="@array/language_values" />
            	<ListPreference
 	           android:title="Second Language"
 	           android:summary="Select second language to display"
-	           android:key="com.jeesmon.malayalambible.language.secondary"
+	           android:key="com.baiboly.katolika.language.secondary"
 	           android:defaultValue="-1"
 	           android:entries="@array/sec_languages"
 	           android:entryValues="@array/sec_language_values" />
@@ -43,7 +43,7 @@
         <ListPreference
 	           android:title="Display Layout"
 	           android:summary="Select a display layout for multiple languages"
-	           android:key="com.jeesmon.malayalambible.language.layout"
+	           android:key="com.baiboly.katolika.language.layout"
 	           android:defaultValue="1"
 	           android:entries="@array/language_layout"
 	           android:entryValues="@array/language_layout_values" />
@@ -51,7 +51,7 @@
         <ListPreference
            android:title="Font Size"
            android:summary="Change font size of text"
-           android:key="com.jeesmon.malayalambible.fontsizekey"
+           android:key="com.baiboly.katolika.fontsizekey"
            android:defaultValue="4"
            android:entries="@array/font_sizes"
            android:entryValues="@array/font_sizes_values" />
@@ -59,7 +59,7 @@
         <ListPreference
            android:title="Theme"
            android:summary="Change application theme"
-           android:key="com.jeesmon.malayalambible.theme"
+           android:key="com.baiboly.katolika.theme"
            android:defaultValue="0"
            android:entries="@array/themes"
            android:entryValues="@array/themes_values" />
@@ -67,7 +67,7 @@
         <ListPreference
            android:title="Unicode Rendering"
            android:summary="Unicode rendering fixes for your device"
-           android:key="com.jeesmon.malayalambible.rendering.option"
+           android:key="com.baiboly.katolika.rendering.option"
            android:defaultValue="0"
            android:entries="@array/rendering_options"
            android:entryValues="@array/rendering_options_values" />
@@ -78,12 +78,12 @@
            	<CheckBoxPreference
            	    android:title="Group by date"
            	    android:summary="Group bookmarks by date"
-           	    android:key="com.jeesmon.malayalambible.bookmark.group"
+           	    android:key="com.baiboly.katolika.bookmark.group"
            	    android:defaultValue="false" />
            	<CheckBoxPreference
            	    android:title="Bookmark on long press"
            	    android:summary="Bookmark verses on long press"
-           	    android:key="com.jeesmon.malayalambible.bookmark.longpress"
+           	    android:key="com.baiboly.katolika.bookmark.longpress"
            	    android:defaultValue="true" />
         </PreferenceScreen>
 

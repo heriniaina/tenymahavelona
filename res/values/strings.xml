@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Malayalam Bible</string>
-    <string name="app_name_short">Bible</string>
-    <string name="books">പുസ്തകങ്ങൾ</string>
+    <string name="app_name">Baiboly Katolika</string>
+    <string name="app_name_short">Baiboly</string>
+    <string name="books">Boky</string>
     <string name="bookseng">Books</string>
-    <string name="chapters">അദ്ധ്യായങ്ങൾ</string>
+    <string name="chapters">Toko</string>
     <string name="chapterseng">Chapters</string>
-    <string name="chapter">അദ്ധ്യായം</string>
+    <string name="chapter">Toko</string>
     <string name="chaptereng">Chapter</string>
-    <string name="oldtestament">പഴയനിയമം</string>
+    <string name="oldtestament">Testamenta taloha</string>
     <string name="oldtestamenteng">Old Testament</string>
-    <string name="newtestament">പുതിയനിയമം</string>
+    <string name="newtestament">Testamenta vaovao</string>
     <string name="newtestamenteng">New Testament</string>
 	<color  name="section_header">#ff0000</color>
 	<string name="font_name">fonts/AnjaliOldLipi.ttf</string>
 	
 	<string-array name="languages">
-	    <item>Malayalam</item>
+	    <item>Malagasy</item>
 	    <item>English - KJV</item>
 	    <item>English - ASV</item>
 	</string-array>
@@ -28,8 +28,8 @@
 	</string-array>
 	
 	<string-array name="sec_languages">
-	    <item>None</item>
-	    <item>Malayalam</item>
+	    <item>Tsisy</item>
+	    <item>Malagasy</item>
 	    <item>English - KJV</item>
 	    <item>English - ASV</item>
 	</string-array>

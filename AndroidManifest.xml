@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jeesmon.malayalambible"
+    package="com.baiboly.katolika"
     android:versionCode="5"
     android:versionName="1.4"
     android:installLocation="preferExternal" >
@@ -49,7 +49,7 @@
             </intent-filter>            
         </activity>
         
-        <provider android:name=".providers.MalayalamBibleBookmarksContentProvider" android:authorities="com.jeesmon.malayalambible.providers.malayalambiblebookmarkscontentprovider"></provider>
+        <provider android:name=".providers.MalayalamBibleBookmarksContentProvider" android:authorities="com.baiboly.katolika.providers.malayalambiblebookmarkscontentprovider"></provider>
     </application>
 
 </manifest>
