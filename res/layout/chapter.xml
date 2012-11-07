@@ -103,13 +103,13 @@
             android:layout_height="fill_parent"
             android:scrollbars="vertical" >
 
-            <TableLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/chapterLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:shrinkColumns="*" >
-            </TableLayout>
+           
+            
+            <TextView
+        android:id="@+id/verse"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="" />
         </ScrollView>
     </LinearLayout>
     

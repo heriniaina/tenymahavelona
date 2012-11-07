@@ -177,7 +177,9 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		}
 	}
 	
-	private void showSingleLanguage(int renderingFix, float fontSize, int language) {	
+	
+	
+	private void showSingleLanguage2 (int renderingFix, float fontSize, int language) {	
 		setTheme(ThemeUtils.getThemeResource());
 		setContentView(R.layout.chapter);
 		
@@ -188,21 +190,26 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		setupToolbar();
         		
 		Resources res = getResources();
-		Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
-				res.getString(R.string.font_name)) : null;
+		//Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
+		//		res.getString(R.string.font_name)) : null;
 		
 		TextView tv = (TextView) findViewById(R.id.heading);
+		/*
 		if(tf == null) {
 			tv.setText(book.getEnglishName());
 		}
 		else {
-			tv.setTypeface(tf);
+		*/
+			//tv.setTypeface(tf);
 			tv.setText(book.getName());
-		}
+		//}
 		
 		tv = (TextView) findViewById(R.id.chapterNumber);
 		//tv.setTextSize(fontSize);
 		
+		tv.setText(res.getString(R.string.chapter) + " " + chapterId);
+		
+		/*
 		if(tf == null) {
 			tv.setText(res.getString(R.string.chaptereng) + " " + chapterId);
 		}
@@ -210,42 +217,174 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 			tv.setTypeface(tf);
 			tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.chapter), renderingFix) + " " + chapterId);
 		}
-		
+		*/
 		cursor.moveToFirst();
 		
 		int rowLayout = R.layout.verserow;
 				
-		TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
-		tl.removeAllViews();
+		//TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
+		
+		//tl.removeAllViews();
 		
 		LayoutInflater inflater = getLayoutInflater();
 		
+		TextView t = (TextView) findViewById(R.id.verse);
+		
+		t.setTextSize(fontSize);
+		StringBuilder s = new StringBuilder();
 		while (!cursor.isAfterLast()) {
 			int verseId = cursor.getInt(0);
-			String verse = tf == null ? cursor.getString(1) : ComplexCharacterMapper.fix(cursor.getString(1), renderingFix);
+			//String verse = tf == null ? cursor.getString(1) : ComplexCharacterMapper.fix(cursor.getString(1), renderingFix);
+			String verse = cursor.getString(1);
 		
-			TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
-			TextView t = (TextView) tr.findViewById(R.id.verse);
+			//TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
 			
-			t.setTextSize(fontSize);
+			/*
 			if(tf != null) {
 				t.setTypeface(tf);
 			}
-			t.setText(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
-			t.setTag("P" + verseId);
-			setVerseOnLongClickHandler(t);
+			*/
+			s.append("<P"+verseId+">");
+			//s.append(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
+			s.append(verseId > 0 ? verseId + ". " + verse : verse);
+			s.append("</P"+verseId+">");
 			
-			tl.addView(tr);
+			
+			//tl.addView(tr);
 			
 			cursor.moveToNext();
 		}
-		
+		t.setText(s, TextView.BufferType.SPANNABLE);
+		setVerseOnLongClickHandler(t);
 		cursor.close();
 		adapter.close();
 		
 		showHideBackToChapter();
 	}
 	
+    private void showSingleLanguage(int renderingFix, float fontSize, int language) {       
+        setTheme(ThemeUtils.getThemeResource());
+        setContentView(R.layout.chapter);
+        
+        if(cursor == null || cursor.isClosed()) {
+                return;
+        }
+        
+        setupToolbar();
+                
+        Resources res = getResources();
+        
+        TextView tv = (TextView) findViewById(R.id.heading);
+        
+        tv.setText(book.getName());
+        
+        tv = (TextView) findViewById(R.id.chapterNumber);
+        //tv.setTextSize(fontSize);
+        
+        tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.chapter), renderingFix) + " " + chapterId);
+        
+        cursor.moveToFirst();
+        
+        int rowLayout = R.layout.verserow;
+                        
+        TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
+        //tl.removeAllViews();
+        
+        LayoutInflater inflater = getLayoutInflater();
+        
+        while (!cursor.isAfterLast()) {
+                int verseId = cursor.getInt(0);
+                String verse = cursor.getString(1);
+        
+                TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
+                TextView t = (TextView) tr.findViewById(R.id.verse);
+                
+                t.setTextSize(fontSize);
+                
+                t.setText(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
+                t.setTag("P" + verseId);
+                setVerseOnLongClickHandler(t);
+                
+                tl.addView(tr);
+                
+                cursor.moveToNext();
+        }
+        
+        cursor.close();
+        adapter.close();
+        
+        showHideBackToChapter();
+    }
+    
+    private void oldShowSingleLanguage(int renderingFix, float fontSize, int language) {       
+        setTheme(ThemeUtils.getThemeResource());
+        setContentView(R.layout.chapter);
+        
+        if(cursor == null || cursor.isClosed()) {
+                return;
+        }
+        
+        setupToolbar();
+                
+        Resources res = getResources();
+        Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
+                        res.getString(R.string.font_name)) : null;
+        
+        TextView tv = (TextView) findViewById(R.id.heading);
+        if(tf == null) {
+                tv.setText(book.getEnglishName());
+        }
+        else {
+                tv.setTypeface(tf);
+                tv.setText(book.getName());
+        }
+        
+        tv = (TextView) findViewById(R.id.chapterNumber);
+        //tv.setTextSize(fontSize);
+        
+        if(tf == null) {
+                tv.setText(res.getString(R.string.chaptereng) + " " + chapterId);
+        }
+        else {
+                tv.setTypeface(tf);
+                tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.chapter), renderingFix) + " " + chapterId);
+        }
+        
+        cursor.moveToFirst();
+        
+        int rowLayout = R.layout.verserow;
+                        
+        TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
+        tl.removeAllViews();
+        
+        LayoutInflater inflater = getLayoutInflater();
+        
+        while (!cursor.isAfterLast()) {
+                int verseId = cursor.getInt(0);
+                String verse = tf == null ? cursor.getString(1) : ComplexCharacterMapper.fix(cursor.getString(1), renderingFix);
+        
+                TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
+                TextView t = (TextView) tr.findViewById(R.id.verse);
+                
+                t.setTextSize(fontSize);
+                if(tf != null) {
+                        t.setTypeface(tf);
+                }
+                t.setText(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
+                t.setTag("P" + verseId);
+                setVerseOnLongClickHandler(t);
+                
+                tl.addView(tr);
+                
+                cursor.moveToNext();
+        }
+        
+        cursor.close();
+        adapter.close();
+        
+        showHideBackToChapter();
+    }
+    
 	private void showTwoLanguagesVerseByVerse(int renderingFix, float fontSize, int language, int secLanguage) {
 		setTheme(ThemeUtils.getThemeResource());
 		setContentView(R.layout.chapterbothverse);
