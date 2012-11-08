@@ -176,8 +176,62 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 			backToChapter.setVisibility(View.GONE);
 		}
 	}
-	
+        
 	private void showSingleLanguage(int renderingFix, float fontSize, int language) {	
+		setTheme(ThemeUtils.getThemeResource());
+		setContentView(R.layout.chapter);
+		
+		if(cursor == null || cursor.isClosed()) {
+			return;
+		}
+		
+		setupToolbar();
+        		
+		Resources res = getResources();
+		
+		TextView tv = (TextView) findViewById(R.id.heading);
+			tv.setText(book.getName());
+		
+		tv = (TextView) findViewById(R.id.chapterNumber);
+		//tv.setTextSize(fontSize);
+		
+			tv.setText(res.getString(R.string.chapter) + " " + chapterId);
+		
+		cursor.moveToFirst();
+		
+		int rowLayout = R.layout.verserow;
+				
+		TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
+		tl.removeAllViews();
+		
+		LayoutInflater inflater = getLayoutInflater();
+		
+		while (!cursor.isAfterLast()) {
+			int verseId = cursor.getInt(0);
+			String verse = cursor.getString(1);
+		
+			TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
+			TextView t = (TextView) tr.findViewById(R.id.verse);
+			
+			t.setTextSize(fontSize);
+			
+			t.setText(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
+			t.setTag("P" + verseId);
+			setVerseOnLongClickHandler(t);
+			
+			tl.addView(tr);
+			
+			cursor.moveToNext();
+		}
+		
+		cursor.close();
+		adapter.close();
+		
+		showHideBackToChapter();
+	}
+    
+    /*
+    	private void showSingleLanguage(int renderingFix, float fontSize, int language) {	
 		setTheme(ThemeUtils.getThemeResource());
 		setContentView(R.layout.chapter);
 		
@@ -245,7 +299,8 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		
 		showHideBackToChapter();
 	}
-	
+
+        */
 	private void showTwoLanguagesVerseByVerse(int renderingFix, float fontSize, int language, int secLanguage) {
 		setTheme(ThemeUtils.getThemeResource());
 		setContentView(R.layout.chapterbothverse);
