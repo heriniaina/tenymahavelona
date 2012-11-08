@@ -15,7 +15,7 @@ import android.os.Environment;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 	private static String[] DB_DELETE = {"bk4"};
-	private static String DB_PATH = "/data/data/com.baiboly.katolika/databases";
+	private static String DB_PATH = "/data/data/com.baiboly.katolika/databases/";
 
 	private static String DB_NAME = "bk5";
 
