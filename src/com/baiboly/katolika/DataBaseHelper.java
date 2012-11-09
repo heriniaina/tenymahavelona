@@ -14,10 +14,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-	private static String[] DB_DELETE = {"bk4"};
+	private static String[] DB_DELETE = {"baiboly.jpg"};
 	private static String DB_PATH = "/data/data/com.baiboly.katolika/databases/";
 
-	private static String DB_NAME = "bk5";
+	private static String DB_NAME = "baiboly-1-0.jpg";
 
 	private String dbPath = null;
 	private SQLiteDatabase bibleDB;
@@ -99,7 +99,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	 * empty database in the system folder, from where it can be accessed and
 	 * handled. This is done by transfering bytestream.
 	 * */
-	private void copyDataBase() throws IOException {
+	
+    /* private void copyDataBase() throws IOException {
 		String path = getDbPath();
 		
 		File dir = new File(path);
@@ -141,28 +142,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 			R.raw.aaf,
 			R.raw.aag,
 			R.raw.aah//,
-            /*
-			R.raw.aai,
-			R.raw.aaj,
-			R.raw.aak,
-			R.raw.aal,
-			R.raw.aam,
-			R.raw.aan,
-			R.raw.aao,
-			R.raw.aap,
-			R.raw.aaq,
-			R.raw.aar,
-			R.raw.aas,
-			R.raw.aat,
-			R.raw.aau,
-			R.raw.aav,
-			R.raw.aaw,
-			R.raw.aax,
-			R.raw.aay,
-			R.raw.aaz,
-			R.raw.aba,
-			R.raw.abb
-            */
 		};
 		
 		for (int i : id) {
@@ -176,6 +155,56 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		databaseOutputStream.flush();
 		databaseOutputStream.close();
 	}
+    */ 
+     
+    /**
+     * Copies your database from your local assets-folder to the just created
+     * empty database in the system folder, from where it can be accessed and
+     * handled. This is done by transfering bytestream.
+     * */
+    private void copyDataBase() throws IOException {
+        String path = getDbPath();
+        
+		File dir = new File(path);
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		
+		for(String df : DB_DELETE) {
+			try {
+				File f = new File(path + df);
+				if(f != null && f.exists()) {
+					f.delete();
+				}
+				
+				if(!DB_PATH.equals(path)) {
+					f = new File(DB_PATH + df);
+					if(f != null && f.exists()) {
+						f.delete();
+					}
+				}
+			}
+			catch(Exception e) {
+				
+			}
+		}        
+        // Open your local db as the input stream
+        InputStream myInput = myContext.getAssets().open(DB_NAME);
+        // Path to the just created empty db
+        String outFileName = path + DB_NAME;
+        // Open the empty db as the output stream
+        OutputStream myOutput = new FileOutputStream(outFileName);
+        // transfer bytes from the inputfile to the outputfile
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = myInput.read(buffer)) > 0) {
+            myOutput.write(buffer, 0, length);
+        }
+        // Close the streams
+        myOutput.flush();
+        myOutput.close();
+        myInput.close();
+    }
 
 	public void openDataBase() throws SQLException {
 

@@ -44,7 +44,8 @@ public class SplashScreenActivity extends Activity {
 	}
 	
 	protected void postInitialization() {
-		startActivity(new Intent(this, ChapterViewActivity.class));
+		//startActivity(new Intent(this, ChapterViewActivity.class));
+        startActivity(new Intent(this, MalayalamBibleActivity.class));
 		finish();
 	}
 }

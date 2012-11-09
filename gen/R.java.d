@@ -50,14 +50,6 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\tablerowsectionbo
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\verserow.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\verserowboth.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\menu\menu.xml \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aaa \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aab \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aac \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aad \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aae \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aaf \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aag \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\raw\aah \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\attrs.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\strings.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\styles.xml \

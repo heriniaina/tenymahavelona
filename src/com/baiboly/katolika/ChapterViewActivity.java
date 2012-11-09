@@ -137,7 +137,7 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		tl1Heights = null;
 		tl2Heights = null;
 		
-		dialog = ProgressDialog.show(ChapterViewActivity.this, "", "Loading ...");
+		dialog = ProgressDialog.show(ChapterViewActivity.this, "", "Andraso kely...");
 		new WorkerThread().start();
 	}
 	
@@ -901,17 +901,17 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 			sb.append(p);
 		}
 		
-		String title = this.book.getEnglishName() + " " + sb.toString();
+		String title = this.book.getName() + " " + sb.toString();
 		String url = this.book.getId() + ":" + sb.toString();
 		BookmarksProviderWrapper.setAsBookmark(getContentResolver(), -1, title, url, true);
-		Toast.makeText(ChapterViewActivity.this, "Verses bookmarked", Toast.LENGTH_SHORT).show();
+		Toast.makeText(ChapterViewActivity.this, "Voatahiry ny andininy", Toast.LENGTH_SHORT).show();
 	}
 	
 	private void addBookmark() {
-		String title = this.book.getEnglishName() + " " + this.chapterId;
+		String title = this.book.getName() + " " + this.chapterId;
 		String url = this.book.getId() + ":" + this.chapterId;
 		BookmarksProviderWrapper.setAsBookmark(getContentResolver(), -1, title, url, true);
-		Toast.makeText(ChapterViewActivity.this, "Chapter bookmarked", Toast.LENGTH_SHORT).show();
+		Toast.makeText(ChapterViewActivity.this, "Voatahiry ny toko", Toast.LENGTH_SHORT).show();
 	}
 
 	public void onAppMenuClickEvent(View sender)
@@ -987,7 +987,7 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 	private void copySelectedVerses(String text) {
 		ClipboardManager ClipMan = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 		ClipMan.setText(text);
-		Toast.makeText(ChapterViewActivity.this, "Selected verses copied to clipboard", Toast.LENGTH_SHORT).show();
+		Toast.makeText(ChapterViewActivity.this, "Voadika ny andininy nofidina", Toast.LENGTH_SHORT).show();
 	}
 	
 	private String getSelectedVerseText() {
@@ -1117,8 +1117,8 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 		sharingIntent.setType("text/plain");
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
-		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Shared from Malayalam Bible for Android");
-		startActivity(Intent.createChooser(sharingIntent, "Share verses using"));
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Avy ao amin'ny baiboly katolika");
+		startActivity(Intent.createChooser(sharingIntent, "Zarao amin'ny"));
 	}
 	
 	@Override

@@ -19,7 +19,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-            android:title="Preferences">
+            android:title="Safidy">
         
         <!-- <PreferenceScreen
             android:title="Languages"
@@ -40,49 +40,49 @@
 	           android:entryValues="@array/sec_language_values" />
         </PreferenceScreen> -->
         
-        <ListPreference
+        <!-- <ListPreference
 	           android:title="Display Layout"
 	           android:summary="Select a display layout for multiple languages"
 	           android:key="com.baiboly.katolika.language.layout"
 	           android:defaultValue="1"
 	           android:entries="@array/language_layout"
-	           android:entryValues="@array/language_layout_values" />
+	           android:entryValues="@array/language_layout_values" /> -->
         
         <ListPreference
-           android:title="Font Size"
-           android:summary="Change font size of text"
+           android:title="Soratra"
+           android:summary="Hanova ny haben'ny soratra"
            android:key="com.baiboly.katolika.fontsizekey"
            android:defaultValue="4"
            android:entries="@array/font_sizes"
            android:entryValues="@array/font_sizes_values" />
         
         <ListPreference
-           android:title="Theme"
-           android:summary="Change application theme"
+           android:title="Endrika"
+           android:summary="Hanova ny loko sy ny endrika"
            android:key="com.baiboly.katolika.theme"
            android:defaultValue="0"
            android:entries="@array/themes"
            android:entryValues="@array/themes_values" />
         
         <ListPreference
-           android:title="Unicode Rendering"
-           android:summary="Unicode rendering fixes for your device"
+           android:title="Unicode"
+           android:summary="Raha tsy miseho ny accents"
            android:key="com.baiboly.katolika.rendering.option"
            android:defaultValue="0"
            android:entries="@array/rendering_options"
            android:entryValues="@array/rendering_options_values" />
         
         <PreferenceScreen
-            android:title="Bookmarks"
-            android:summary="Bookmark options">
+            android:title="Tahirin'andininy"
+            android:summary="Momba ny fitehirizana ny andininy">
            	<CheckBoxPreference
-           	    android:title="Group by date"
-           	    android:summary="Group bookmarks by date"
+           	    android:title="Araka ny daty"
+           	    android:summary="Alahatra araka ny daty"
            	    android:key="com.baiboly.katolika.bookmark.group"
            	    android:defaultValue="false" />
            	<CheckBoxPreference
-           	    android:title="Bookmark on long press"
-           	    android:summary="Bookmark verses on long press"
+           	    android:title="Tsindry maharitra"
+           	    android:summary="Tsindrina maharitra raha hitahiry"
            	    android:key="com.baiboly.katolika.bookmark.longpress"
            	    android:defaultValue="true" />
         </PreferenceScreen>

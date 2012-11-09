@@ -90,11 +90,11 @@
 	</string-array>
 	
 	<string-array name="themes">
-	    <item>White</item>
-	    <item>Black</item>
-	    <item>Maroon</item>
-	    <item>Light Green</item>
-	    <item>Light Yellow</item>
+	    <item>Fotsy</item>
+	    <item>Mainty</item>
+	    <item>Volontany</item>
+	    <item>Maitso mazava</item>
+	    <item>Mavo</item>
 	</string-array>
 	
 	<string-array name="themes_values">
@@ -105,24 +105,24 @@
 	    <item>4</item>
 	</string-array>
 	
-	<string name="copy">Copy Selected</string>
-	<string name="share">Share Selected</string>
-	<string name="bookmarkVerses">Bookmark Verses</string>
-	<string name="bookmarkChapter">Bookmark Chapter</string>
-	<string name="bookmarks">Show Bookmarks</string>
-	<string name="play">Play Audio</string>
-	<string name="pause">Pause Audio</string>
-	<string name="notes">Notes</string>
-	<string name="clear">Clear Selection</string>
-	<string name="showFullChapter">&lt;&lt; Show full chapter</string>
+	<string name="copy">Adika ny andininy</string>
+	<string name="share">Zarao ny andininy</string>
+	<string name="bookmarkVerses">Tehirizo ny andininy</string>
+	<string name="bookmarkChapter">Tehirizo ny toko</string>
+	<string name="bookmarks">Asehoy ny tahiry</string>
+	<string name="play">Asio feo</string>
+	<string name="pause">Ajanony ny feo</string>
+	<string name="notes">Fanamarihana</string>
+	<string name="clear">Esory ny safidy</string>
+	<string name="showFullChapter">&lt;&lt; Aseho ny toko manontolo</string>
 	
-	<string name="BookmarksListActivity.Title">Bookmarks</string>
-    <string name="BookmarksListActivity.Empty">No bookmarks</string>
-    <string name="BookmarksListActivity.MenuDeleteBookmark">Delete bookmark</string>
+	<string name="BookmarksListActivity.Title">Tahiry</string>
+    <string name="BookmarksListActivity.Empty">Tsisy tahiry hita</string>
+    <string name="BookmarksListActivity.MenuDeleteBookmark">Fafao ny tahiry</string>
     
-    <string name="HistoryListActivity.Today">Today</string>
-    <string name="HistoryListActivity.Yesterday">Yesterday</string>
-    <string name="HistoryListActivity.LastSevenDays">Last 7 days</string>
-    <string name="HistoryListActivity.LastMonth">Last month</string>
-    <string name="HistoryListActivity.Older">Older</string>
+    <string name="HistoryListActivity.Today">Androany</string>
+    <string name="HistoryListActivity.Yesterday">Omaly</string>
+    <string name="HistoryListActivity.LastSevenDays">Tanaty 7 andro</string>
+    <string name="HistoryListActivity.LastMonth">Volana lasa</string>
+    <string name="HistoryListActivity.Older">Hafa</string>
 </resources>

@@ -93,20 +93,21 @@ public class MalayalamBibleActivity extends BaseActivity {
 	
 	private void showSingleLanguage(int renderingFix, float fontSize, int language) {
 		Resources res = getResources();
-		Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
-				res.getString(R.string.font_name)) : null;
+		//Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
+		//		res.getString(R.string.font_name)) : null;
 		
 		int rowLayout = R.layout.bookrow;
 		int rowHeaderLayout = R.layout.tablerowsection;
 		
 		TextView tv = (TextView) findViewById(R.id.heading);
-		if(tf == null) {
-			tv.setText(R.string.bookseng);
-		}
-		else {
-			tv.setTypeface(tf);
-			tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.books), renderingFix));
-		}
+        tv.setText(R.string.books);
+		//if(tf == null) {
+		//	tv.setText(R.string.bookseng);
+		//}
+		//else {
+		//	tv.setTypeface(tf);
+		//	tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.books), renderingFix));
+		//}
 		
 		TableLayout tl = (TableLayout) findViewById(R.id.booksLayout);
 		tl.removeAllViews();
@@ -126,13 +127,14 @@ public class MalayalamBibleActivity extends BaseActivity {
 				t = (TextView) tr.findViewById(R.id.section);
 				
 				t.setTextSize(fontSize);
-				if(tf == null) {
-					t.setText(R.string.oldtestamenteng);
-				}
-				else {
-					t.setTypeface(tf);
+                
+				// if(tf == null) {
+					// t.setText(R.string.oldtestamenteng);
+				// }
+				// else {
+					//t.setTypeface(tf);
 					t.setText(R.string.oldtestament);
-				}
+				// }
 				
 				tl.addView(tr);
 			} else if (c == 46) {
@@ -140,13 +142,13 @@ public class MalayalamBibleActivity extends BaseActivity {
 				t = (TextView) tr.findViewById(R.id.section);
 				
 				t.setTextSize(fontSize);
-				if(tf == null) {
-					t.setText(R.string.newtestamenteng);
-				}
-				else {
-					t.setTypeface(tf);
+				// if(tf == null) {
+					// t.setText(R.string.newtestamenteng);
+				// }
+				// else {
+					// t.setTypeface(tf);
 					t.setText(R.string.newtestament);
-				}
+				// }
 				
 				tl.addView(tr);
 			}
@@ -175,13 +177,13 @@ public class MalayalamBibleActivity extends BaseActivity {
 				}
 			});
 			t.setTextSize(fontSize);
-			if(tf == null) {
-				t.setText(book.getEnglishName());
-			}
-			else {
-				t.setTypeface(tf);
+			// if(tf == null) {
+				// t.setText(book.getEnglishName());
+			// }
+			// else {
+				// t.setTypeface(tf);
 				t.setText(book.getName());
-			}
+			// }
 			
 			tl.addView(tr);
 		}
