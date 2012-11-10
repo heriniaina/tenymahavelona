@@ -1041,7 +1041,7 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		}
 		
 		boolean hasFirstLangSelection = false;
-		
+		String link = "http://baiboly.katolika.org/boky/";
 		if(cursor != null && !cursor.isClosed()) {
 			cursor.moveToFirst();
 			
@@ -1055,19 +1055,23 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 					sb.append(book.getEnglishName());
 				}
 				
+                link += book.getOriginalName();
 				if(selectedVerses.size() > 1) {
 					sb.append("\n");
 				}
 				else {
 					sb.append(" ");
+                    link += "/";
 				}
 			}
 			
 			while(!cursor.isAfterLast()) {
 				if(cursor.getInt(0) > 0) {
 					sb.append(chapterId).append(":").append(cursor.getInt(0)).append(" ");
+                    link += chapterId + "/" + cursor.getInt(0);
 				}
 				sb.append(cursor.getString(1)).append("\n");
+                
 				cursor.moveToNext();
 			}
 			cursor.close();
@@ -1107,7 +1111,8 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		}
 		
 		adapter.close();
-		
+        link = link.replace(" ", "+");
+		sb.append(" " + link);
 		return sb.toString();
 	}
 	
