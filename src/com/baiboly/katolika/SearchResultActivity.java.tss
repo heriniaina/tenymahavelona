@@ -34,7 +34,7 @@ import android.widget.Toast;
 
 import com.baiboly.katolika.providers.BookmarksProviderWrapper;
 
-public class ChapterViewActivity extends BaseActivity implements IScrollListener {
+public class SearchResultActivity extends BaseActivity implements IScrollListener {
 	public static final int MENU_ITEM_COPY = Menu.FIRST;
 	public static final int MENU_ITEM_SHARE = Menu.FIRST + 1;
 	public static final int MENU_ITEM_BOOKMARK_VERSES = Menu.FIRST + 2;
@@ -149,8 +149,22 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		float fontSize = pref.getFontSize();
 		bookmarkOnLongPress = pref.isBookmarkOnLongPress();
 		
-		showSingleLanguage(renderingFix, fontSize, pref.getLanguage());
-				
+		if(pref.getSecLanguage() == Preference.LANG_NONE) {
+			showSingleLanguage(renderingFix, fontSize, pref.getLanguage());
+		}
+		else {
+			switch(pref.getLanguageLayout()) {
+			case 0:
+				showTwoLanguagesVerseByVerse(renderingFix, fontSize, pref.getLanguage(), pref.getSecLanguage());
+				break;
+			case 1:
+				showTwoLanguagesSplit(renderingFix, fontSize, pref.getLanguage(), pref.getSecLanguage(), pref.getLanguageLayout());
+				break;
+			case 2:
+				showTwoLanguagesSplit(renderingFix, fontSize, pref.getLanguage(), pref.getSecLanguage(), pref.getLanguageLayout());
+				break;
+			}
+		}		
 	}
 
 	private void showHideBackToChapter() {
@@ -216,7 +230,77 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		showHideBackToChapter();
 	}
     
- 
+    /*
+    	private void showSingleLanguage(int renderingFix, float fontSize, int language) {	
+		setTheme(ThemeUtils.getThemeResource());
+		setContentView(R.layout.chapter);
+		
+		if(cursor == null || cursor.isClosed()) {
+			return;
+		}
+		
+		setupToolbar();
+        		
+		Resources res = getResources();
+		Typeface tf = language == Preference.LANG_MALAYALAM ? Typeface.createFromAsset(getAssets(),
+				res.getString(R.string.font_name)) : null;
+		
+		TextView tv = (TextView) findViewById(R.id.heading);
+		if(tf == null) {
+			tv.setText(book.getEnglishName());
+		}
+		else {
+			tv.setTypeface(tf);
+			tv.setText(book.getName());
+		}
+		
+		tv = (TextView) findViewById(R.id.chapterNumber);
+		//tv.setTextSize(fontSize);
+		
+		if(tf == null) {
+			tv.setText(res.getString(R.string.chaptereng) + " " + chapterId);
+		}
+		else {
+			tv.setTypeface(tf);
+			tv.setText(ComplexCharacterMapper.fix(res.getString(R.string.chapter), renderingFix) + " " + chapterId);
+		}
+		
+		cursor.moveToFirst();
+		
+		int rowLayout = R.layout.verserow;
+				
+		TableLayout tl = (TableLayout) findViewById(R.id.chapterLayout);
+		tl.removeAllViews();
+		
+		LayoutInflater inflater = getLayoutInflater();
+		
+		while (!cursor.isAfterLast()) {
+			int verseId = cursor.getInt(0);
+			String verse = tf == null ? cursor.getString(1) : ComplexCharacterMapper.fix(cursor.getString(1), renderingFix);
+		
+			TableRow tr = (TableRow)inflater.inflate(rowLayout, tl, false);
+			TextView t = (TextView) tr.findViewById(R.id.verse);
+			
+			t.setTextSize(fontSize);
+			if(tf != null) {
+				t.setTypeface(tf);
+			}
+			t.setText(verseId > 0 ? verseId + ". " + verse : verse, TextView.BufferType.SPANNABLE);
+			t.setTag("P" + verseId);
+			setVerseOnLongClickHandler(t);
+			
+			tl.addView(tr);
+			
+			cursor.moveToNext();
+		}
+		
+		cursor.close();
+		adapter.close();
+		
+		showHideBackToChapter();
+	}
+
+        */
 	private void showTwoLanguagesVerseByVerse(int renderingFix, float fontSize, int language, int secLanguage) {
 		setTheme(ThemeUtils.getThemeResource());
 		setContentView(R.layout.chapterbothverse);
@@ -832,16 +916,9 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 
 	public void onAppMenuClickEvent(View sender)
 	{
-            registerForContextMenu(sender); 
-            openContextMenu(sender);
-            unregisterForContextMenu(sender);
-
-	}
-	
-	public void onAppMenuLeftClickEvent(View sender)
-	{
-            startActivity(new Intent(ChapterViewActivity.this, SearchViewActivity.class));
-            //startActivity(new Intent(this, SearchViewActivity.class));
+	    registerForContextMenu(sender); 
+	    openContextMenu(sender);
+	    unregisterForContextMenu(sender);
 	}
 	
 	public void onBackToChapterClickEvent(View sender) {

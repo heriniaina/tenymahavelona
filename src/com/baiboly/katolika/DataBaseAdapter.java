@@ -72,4 +72,55 @@ public class DataBaseAdapter {
 		
 		return database.rawQuery(q.toString(), new String[]{bookId + "", chapterId + ""});
 	}
+    
+    public Cursor fetchVerses(String search, int bookId, int limit, int offset)
+    {
+		
+		return database.rawQuery("SELECT a.b_and , a.b_text , a.b_toko, b.b_sname,b._id as b_id FROM b_and as a LEFT JOIN b_toko as t ON t._id=a.b_t_id LEFT JOIN b_boky AS b ON b._id=t.t_b_id WHERE a.b_text LIKE '%" + search + "%' AND b._id = ? ORDER BY b._id, a.b_toko, a.b_and  LIMIT ? OFFSET ? " , new String[]{bookId + "", limit + "", offset + ""});
+    
+    }
+    public Cursor fetchVerses(String search, int limit, int offset)
+    {
+        
+		
+		return database.rawQuery("SELECT a.b_and , a.b_text , a.b_toko, b.b_sname,b._id as b_id FROM b_and as a LEFT JOIN b_toko as t ON t._id=a.b_t_id LEFT JOIN b_boky AS b ON b._id=t.t_b_id WHERE a.b_text LIKE '%" + search + "%'  order by b._id, a.b_toko, a.b_and  LIMIT ? OFFSET ?", new String[]{limit + "", offset + ""});
+   
+    }
+    
+    public Cursor fetchVerses(ArrayList<String> selectedVerses)
+    {
+		StringBuilder q = new StringBuilder("SELECT a.b_and , a.b_text , a.b_toko, b.b_sname,b._id as b_id FROM b_and as a LEFT JOIN b_toko as t ON t._id=a.b_t_id LEFT JOIN b_boky AS b ON b._id=t.t_b_id WHERE b._id = ? AND a.b_toko = ? AND a.b_and = ? ");
+		
+        String sid = selectedVerses.get(0);
+        String[] tokens = sid.split("|");
+        
+		return database.rawQuery(q.toString(), new String[]{tokens[1], tokens[2], tokens[3]});
+        
+
+    }
+    
+    public int countVerses(String search)
+    {
+        Cursor c = database.rawQuery("SELECT count(a.b_and) as cnt FROM b_and AS a WHERE a.b_text LIKE '%" + search + "%'", null);
+        c.moveToFirst();
+        return c.getInt(0);
+    }
+    
+    public int countVerses(String search, int bookId)
+    {
+		StringBuilder q = new StringBuilder("SELECT count(a.b_and) as cnt FROM b_and as a LEFT JOIN b_toko as t ON t._id=a.b_t_id WHERE t.t_b_id = ? AND a.b_text LIKE '%" + search + "%'");
+		
+		Cursor c = database.rawQuery(q.toString(), new String[]{bookId + ""});
+        if(c != null)
+        {
+            c.moveToFirst();
+            
+            
+            return c.getInt(0);
+        }
+        else
+        {
+            return 0;
+        }
+    }    
 }

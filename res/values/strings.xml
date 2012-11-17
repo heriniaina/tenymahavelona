@@ -125,4 +125,11 @@
     <string name="HistoryListActivity.LastSevenDays">Tanaty 7 andro</string>
     <string name="HistoryListActivity.LastMonth">Volana lasa</string>
     <string name="HistoryListActivity.Older">Hafa</string>
+    
+    <string name="searchText">Teny hotadiavina</string>
+    <string name="searchChapter">Toko</string>
+    <string name="searchVerse">Andininy</string>
+    <string name="searchBook">Boky</string>
+    <string name="searchButton">Tadiavo</string>
+    <string name="searchResultTotal">Andininy hita:</string>
 </resources>

@@ -27,7 +27,7 @@
 	    	    android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        style="?buttonBarItem"
-		        android:text="Books"
+		        android:text="Boky"
 		        android:layout_marginLeft="2dp"
 		    />
 	        <LinearLayout 
@@ -55,7 +55,7 @@
 	    	    android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        style="?buttonBarItem"
-		        android:text="Back"
+		        android:text=" &lt; "
 		        android:visibility="invisible"
 		    />
 	    </TableRow>

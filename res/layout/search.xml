@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chaptersLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    style="?pageBackground">
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/headingLayout"
+            style="?pageHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:stretchColumns="2" >
+
+            <TableRow
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="2dp" >        
+        <TextView
+        android:id="@+id/heading"
+        style="?pageHeaderText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Fitadiavana" />
+            </TableRow>
+        </TableLayout>
+  
+  
+  <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    style="?pageBackground"
+    android:padding="10dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_height="wrap_content"
+             style="?textView"
+           android:hint="@string/searchText"
+            android:layout_width="fill_parent"
+            android:nextFocusDown="@+id/searchBook">
+        </EditText>
+        
+        <Spinner
+        android:id="@+id/searchBook"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/searchBook"
+        android:nextFocusDown="@+id/searchChapter"
+        />
+
+<!--         <EditText
+            android:id="@+id/searchChapter"
+            android:layout_height="wrap_content"
+             style="?textView"
+           android:hint="@string/searchChapter"
+           android:nextFocusDown="@+id/searchVerse"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/searchVerse"
+            android:layout_height="wrap_content"
+            style="?textView"
+            android:hint="@string/searchVerse"
+            android:nextFocusDown="@+id/ButtonSearch"
+            android:layout_width="fill_parent">
+        </EditText> -->
+        
+        <Button
+            android:id="@+id/ButtonSearch"
+            android:layout_height="wrap_content"
+            android:text="@string/searchButton"
+            style="?button"
+            android:onClick="onClickSearchButton"
+            android:layout_width="fill_parent">
+            
+        </Button>
+        
+        
+    </LinearLayout>
+</ScrollView>
+    </LinearLayout>

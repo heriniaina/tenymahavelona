@@ -2,6 +2,7 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\gen\com\baiboly\katolika\R.j
  : F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom_disabled.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom_pressed.9.png \
+F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubbleleftgray48.fw.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubbleright48.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubblerightgray48.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\buttons_bottom.xml \
@@ -44,6 +45,8 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\chaptersplithoriz
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\chaptersplitvertical.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\info.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\main.xml \
+F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\search.xml \
+F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\searchresult.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\splash.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\tablerowsection.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\layout\tablerowsectionboth.xml \
@@ -58,6 +61,7 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\xml\preferences.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom_disabled.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom_pressed.9.png \
+F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubbleleftgray48.fw.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubbleright48.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubblerightgray48.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\ic_app_name.png \

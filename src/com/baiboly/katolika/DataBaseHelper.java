@@ -14,10 +14,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-	private static String[] DB_DELETE = {"baiboly.jpg"};
+	private static String[] DB_DELETE = {"baiboly-1-0.jpg"};
 	private static String DB_PATH = "/data/data/com.baiboly.katolika/databases/";
 
-	private static String DB_NAME = "baiboly-1-0.jpg";
+	private static String DB_NAME = "baiboly-1-1.jpg";
 
 	private String dbPath = null;
 	private SQLiteDatabase bibleDB;

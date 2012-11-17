@@ -1,6 +1,7 @@
 package com.baiboly.katolika;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +29,24 @@ public class Utils {
 		return books;
 	}
 	
+    public static List<String> getBookList(){
+        List<String> labels = new ArrayList<String>();
+        
+        labels.add("-- Boky --");
+        try {
+            JSONArray ja = new JSONArray(booksJson);
+            for (int i = 0; i < ja.length(); i++) {
+                JSONArray ia = (JSONArray) ja.get(i);
+                labels.add(ia.getString(1));
+            }
+        } catch (JSONException e) {}
+        
+        // returning lables
+        return labels;
+    }    
+    
+    
+    
 	public static void setRenderingFix(int value) {
 		renderingFix = value;
 	}
