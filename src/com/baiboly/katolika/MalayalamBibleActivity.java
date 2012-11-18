@@ -47,13 +47,7 @@ public class MalayalamBibleActivity extends BaseActivity {
 	private void getContent() {
 		Preference pref = Preference.getInstance(this);
 		
-		setTheme(ThemeUtils.getThemeResource());
-		if(pref.getLanguageLayout() == Preference.LAYOUT_SIDE_BY_SIDE) {
-			setContentView(R.layout.books_sidebyside);
-		}
-		else {
-			setContentView(R.layout.main);
-		}
+		setContentView(R.layout.main);
 		
 		showContent();
 	}
@@ -341,4 +335,11 @@ public class MalayalamBibleActivity extends BaseActivity {
 			tl.addView(tr);
 		}
 	}	
+    
+   	public void onAppMenuLeftClickEvent(View sender)
+	{
+            startActivity(new Intent(MalayalamBibleActivity.this, SearchViewActivity.class));
+            //startActivity(new Intent(this, SearchViewActivity.class));
+	}
+
 }

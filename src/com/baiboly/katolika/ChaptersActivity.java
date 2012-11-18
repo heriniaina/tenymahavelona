@@ -108,4 +108,11 @@ public class ChaptersActivity extends BaseActivity {
 	        gridview.setAdapter(new ChapterButtonAdapter(this, book, this));
 	    }
 	}
+   	
+    public void onAppMenuLeftClickEvent(View sender)
+	{
+            startActivity(new Intent(ChaptersActivity.this, SearchViewActivity.class));
+
+	}
+
 }

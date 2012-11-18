@@ -32,6 +32,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.util.Log;
+
 import com.baiboly.katolika.providers.BookmarksProviderWrapper;
 
 public class ChapterViewActivity extends BaseActivity implements IScrollListener {
@@ -819,6 +821,10 @@ public class ChapterViewActivity extends BaseActivity implements IScrollListener
 		
 		String title = this.book.getName() + " " + sb.toString();
 		String url = this.book.getId() + ":" + sb.toString();
+        
+        Log.d("baibolylog", "string title: " + title);
+        Log.d("baibolylog", "string url: " + url);
+
 		BookmarksProviderWrapper.setAsBookmark(getContentResolver(), -1, title, url, true);
 		Toast.makeText(ChapterViewActivity.this, "Voatahiry ny andininy", Toast.LENGTH_SHORT).show();
 	}

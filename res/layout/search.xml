@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/chaptersLayout"
+    style="?pageBackground"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    style="?pageBackground">
+    android:orientation="vertical" >
+    
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?pageBackground"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal" >
 
         <TableLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/headingLayout"
             style="?pageHeader"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:gravity="center_vertical"
-            android:stretchColumns="2" >
+            android:stretchColumns="0" >
 
             <TableRow
                 android:gravity="center_vertical|center_horizontal"
-                android:padding="2dp" >        
-        <TextView
-        android:id="@+id/heading"
-        style="?pageHeaderText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Fitadiavana" />
+                android:padding="2dp" >
+
+                    <TextView
+                        android:id="@+id/heading"
+                        style="?pageHeaderText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Fitadiavana" />
+
             </TableRow>
         </TableLayout>
-  
-  
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
   <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
@@ -89,5 +113,26 @@
         
         
     </LinearLayout>
-</ScrollView>
+</ScrollView>        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </LinearLayout>
+    
+
+    
+    </LinearLayout>
+    
+
+	</RelativeLayout>
+</LinearLayout>

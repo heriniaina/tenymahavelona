@@ -27,11 +27,31 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
-            android:stretchColumns="2" >
+            android:stretchColumns="1" >
 
             <TableRow
                 android:gravity="center_vertical|center_horizontal"
                 android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/button_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  "
+                    android:layout_marginLeft="4dp"
+                    android:onClick="onAppMenuLeftClickEvent"
+                    android:background="@drawable/bubbleleftgray24"  />
+                    
+
+
+                    <TextView
+                        android:id="@+id/heading"
+                        style="?pageHeaderText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Vokatry ny fitadiavana" />
+
 
                 <Button
                     android:id="@+id/prevButton"
@@ -40,28 +60,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dp"
                     android:text="&lt;"
-                    android:visibility="invisible" />
-                    
-
-
-                    <TextView
-                        android:id="@+id/heading"
-                        style="?pageHeaderText"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:text="Vokatry ny fitadiavana" />
-
-
-
+                    android:visibility="gone" />
                 <Button
                     android:id="@+id/nextButton"
                     style="?buttonBarItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
                     android:text="&gt;"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
@@ -113,14 +120,6 @@
     
     </LinearLayout>
     
-    <ImageView android:layout_height="wrap_content"
-			android:layout_width="wrap_content" 
-			android:src="@drawable/bubbleleftgray48"
-			android:layout_alignParentBottom="true"
-			android:layout_alignParentLeft="true" 
-			android:id="@+id/BubbleLeftView"
-			android:onClick="onAppMenuLeftClickEvent">
-    </ImageView>
     
     <ImageView android:layout_height="wrap_content"
 			android:layout_width="wrap_content" 

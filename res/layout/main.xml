@@ -9,7 +9,7 @@
         android:id="@+id/headingLayout"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:stretchColumns="1"
+	    android:stretchColumns="2"
 	    style="?pageHeader">
 	    <TableRow
 	        android:gravity="center_vertical|center_horizontal">
@@ -21,6 +21,14 @@
 		        android:text=" &lt; "
 		        android:layout_marginLeft="2dp"
 		    />
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_marginLeft="4dp"
+           android:text="  "
+            android:onClick="onAppMenuLeftClickEvent"
+            android:background="@drawable/bubbleleftgray24"  />
 	        <LinearLayout 
 	            android:layout_width="fill_parent"
 		    	android:layout_height="wrap_content"
@@ -69,5 +77,7 @@
 	    android:stretchColumns="0">
 		</TableLayout>
      
+     
+
 	</ScrollView>
 </LinearLayout>

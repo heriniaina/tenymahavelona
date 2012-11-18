@@ -2,6 +2,7 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\gen\com\baiboly\katolika\R.j
  : F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom_disabled.9.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\btn_bottom_pressed.9.png \
+F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubbleleftgray24.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubbleleftgray48.fw.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubbleright48.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\drawable\bubblerightgray48.png \
@@ -58,13 +59,4 @@ F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\strings.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\styles.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\values\themes.xml \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\res\xml\preferences.xml \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom.9.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom_disabled.9.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\btn_bottom_pressed.9.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubbleleftgray48.fw.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubbleright48.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\bubblerightgray48.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\ic_app_name.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\ic_btn_bookmarks.png \
-F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\res\drawable\ic_launcher.png \
 F:\Users\hery\Documents\dev\android\BaibolyKatolika\bin\AndroidManifest.xml \

@@ -213,10 +213,10 @@ public class SearchResultActivity extends BaseActivity  {
 			
 			t.setTextSize(fontSize);
 			
-            Spanned tmptext = Html.fromHtml("<b>" + bookName + " " + chapterId + ". " + verseId + "</b> " + verse);
+            Spanned tmptext = Html.fromHtml("<b>" + bookName + " " + chapterId + ":" + verseId + "</b> " + verse);
             
 			t.setText(tmptext, TextView.BufferType.SPANNABLE);
-			t.setTag(bookName+"|"+bookId+"|"+chapterId+"|"+verseId);
+			t.setTag(bookName+":"+bookId+":"+chapterId+":"+verseId);
 			setVerseOnLongClickHandler(t);
 			
 			tl.addView(tr);
@@ -362,14 +362,17 @@ public class SearchResultActivity extends BaseActivity  {
 			return;
 		}
 		
-		TreeSet<Integer> verseIds = new TreeSet<Integer>();
 		for(String sid : selectedVerses) {
 			try {
-                String[] tokens = sid.split("|");
+                Log.d("baibolylog", "string sid: " + sid);
+                String[] tokens = sid.split(":");
                 // bookName+"|"+bookId+"|"+chapterId+"|"+verseId
                 
                 String title = tokens[0] + " " + tokens[2] + ":" + tokens[3];
                 String url = tokens[1] + ":" + tokens[2] + ":" + tokens[3];
+                
+                Log.d("baibolylog", "string title: " + title);
+                Log.d("baibolylog", "string url: " + url);
                 BookmarksProviderWrapper.setAsBookmark(getContentResolver(), -1, title, url, true);
 			}
 			catch(Exception e){}
@@ -399,8 +402,8 @@ public class SearchResultActivity extends BaseActivity  {
 	}
 	
 	public void onVerseSelected(View sender) {
-        //only allow one selectedverse
-        clearSelectedVerses();
+        selectedVerses.clear();
+        
 		try {
 			TextView tv = (TextView) sender;
 			Spannable sText = (Spannable) tv.getText();
@@ -414,6 +417,8 @@ public class SearchResultActivity extends BaseActivity  {
 			}
 		}
 		catch(Exception e){}
+        
+        
 	}
 	
 	private void clearSelectedVerses() {
@@ -589,8 +594,10 @@ public class SearchResultActivity extends BaseActivity  {
 	
 	private class VerseLongClickHandler implements View.OnLongClickListener {
 		@Override
-		public boolean onLongClick(View v) {			
+		public boolean onLongClick(View v) {
+            
 			try {
+                
 				TextView tv = (TextView) v;
 				Spannable sText = (Spannable) tv.getText();
 				if(sText.getSpanStart(selectionSpan) == -1) {
