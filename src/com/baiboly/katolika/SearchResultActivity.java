@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 import java.lang.*;
 
-import android.util.Log;
-
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -277,10 +275,7 @@ public class SearchResultActivity extends BaseActivity  {
 			
 			String table = "verses";
 			
-            Log.d("baibolylog", "searchBext is : " + searchText);
-            Log.d("baibolylog", "searchPage is : " + searchPage);
-            Log.d("baibolylog", "searchBook is : " + searchBook);
-            
+                        
             if(searchBook == 0) {
                 cursor = adapter.fetchVerses(searchText, recordsPerPage, (searchPage - 1)*recordsPerPage);
                 total = adapter.countVerses(searchText);
@@ -364,15 +359,13 @@ public class SearchResultActivity extends BaseActivity  {
 		
 		for(String sid : selectedVerses) {
 			try {
-                Log.d("baibolylog", "string sid: " + sid);
                 String[] tokens = sid.split(":");
                 // bookName+"|"+bookId+"|"+chapterId+"|"+verseId
                 
                 String title = tokens[0] + " " + tokens[2] + ":" + tokens[3];
                 String url = tokens[1] + ":" + tokens[2] + ":" + tokens[3];
                 
-                Log.d("baibolylog", "string title: " + title);
-                Log.d("baibolylog", "string url: " + url);
+                
                 BookmarksProviderWrapper.setAsBookmark(getContentResolver(), -1, title, url, true);
 			}
 			catch(Exception e){}
