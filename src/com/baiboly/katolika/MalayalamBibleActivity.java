@@ -1,7 +1,17 @@
 package com.baiboly.katolika;
 
 import java.util.ArrayList;
+import java.net.URL;
+import java.net.URLConnection;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.ByteArrayInputStream;
+import org.apache.http.util.ByteArrayBuffer;
+import 	java.io.BufferedInputStream;
+import android.net.Uri;
+import android.app.AlertDialog;
 
+import android.content.DialogInterface;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,9 +24,13 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.os.Handler;
+import android.content.SharedPreferences;
+
 
 public class MalayalamBibleActivity extends BaseActivity {
 	private Context context = null;
+    private Handler mHandler;
 	
 	private static boolean preferenceChanged = false;
 	
@@ -30,6 +44,26 @@ public class MalayalamBibleActivity extends BaseActivity {
 		
 		context = this;
 		preferenceChanged = false;
+        mHandler = new Handler();
+        
+        /* Get Last Update Time from Preferences */
+        SharedPreferences prefs = getPreferences(0);
+        long lastUpdateTime =  prefs.getLong("lastUpdateTime", 0);
+        
+        
+        /* Should Activity Check for Updates Now? */
+        /* monthly check */
+        if ((lastUpdateTime + (30 * 24 * 60 * 60 * 1000)) < System.currentTimeMillis()) {
+
+            /* Save current timestamp for next Check*/
+            lastUpdateTime = System.currentTimeMillis();            
+            SharedPreferences.Editor editor = getPreferences(0).edit();
+            editor.putLong("lastUpdateTime", lastUpdateTime);
+            editor.commit();        
+
+            /* Start Update */            
+            checkUpdate.start();
+        }
 		
 		getContent();
 	}
@@ -341,5 +375,63 @@ public class MalayalamBibleActivity extends BaseActivity {
             startActivity(new Intent(MalayalamBibleActivity.this, SearchViewActivity.class));
             //startActivity(new Intent(this, SearchViewActivity.class));
 	}
+    
+
+    /* This Thread checks for Updates in the Background */
+    private Thread checkUpdate = new Thread() {
+        public void run() {
+            try {
+                URL updateURL = new URL("http://baiboly.katolika.org/media/com.baiboly.katolika/version.txt");                
+                URLConnection conn = updateURL.openConnection(); 
+                InputStream is = conn.getInputStream();
+                BufferedInputStream bis = new BufferedInputStream(is);
+                ByteArrayBuffer baf = new ByteArrayBuffer(50);
+                
+                int current = 0;
+                while((current = bis.read()) != -1){
+                     baf.append((byte)current);
+                }
+
+                /* Convert the Bytes read to a String. */
+                final String s = new String(baf.toByteArray());         
+                
+                /* Get current Version Number */
+                int curVersion = getPackageManager().getPackageInfo("com.baiboly.katolika", 0).versionCode;
+                int newVersion = Integer.valueOf(s);
+                
+                
+                
+                /* Is a higher version than the current already out? */
+                if (newVersion > curVersion) {
+                    /* Post a Handler for the UI to pick up and open the Dialog */
+                    mHandler.post(showUpdate);
+                }                
+            } catch (Exception e) {
+            }
+        }
+    };
+
+    /* This Runnable creates a Dialog and asks the user to open the Market */ 
+    private Runnable showUpdate = new Runnable(){
+           public void run(){
+            new AlertDialog.Builder(MalayalamBibleActivity.this)
+            //.setIcon(R.drawable.icon)
+            .setTitle("Voatra vaovao")
+            .setMessage("Nisy version vaovao nivoaka. Tianao hojerena ny momba azy?")
+            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                            /* User clicked OK so do some stuff */
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pname:com.baiboly.katolika"));
+                            startActivity(intent);
+                    }
+            })
+            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                            /* User clicked Cancel */
+                    }
+            })
+            .show();
+           }
+    };        
 
 }
