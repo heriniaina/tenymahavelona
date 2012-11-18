@@ -183,12 +183,12 @@ public class SearchResultActivity extends BaseActivity  {
 		Resources res = getResources();
 		
 		TextView tv = (TextView) findViewById(R.id.heading);
-			tv.setText("Valiny");
+			tv.setText("Vokatry ny fikarohana");
 		
 		tv = (TextView) findViewById(R.id.chapterNumber);
 		//tv.setTextSize(fontSize);
 		
-			tv.setText(res.getString(R.string.searchResultTotal) + " " + this.total);
+			tv.setText(res.getString(R.string.searchResultTotal) + " " + this.total + " (pejy " + searchPage + "/" + noOfPages + ")");
 		
 		cursor.moveToFirst();
 		

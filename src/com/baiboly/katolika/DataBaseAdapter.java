@@ -92,7 +92,7 @@ public class DataBaseAdapter {
 		StringBuilder q = new StringBuilder("SELECT a.b_and , a.b_text , a.b_toko, b.b_sname,b._id as b_id FROM b_and as a LEFT JOIN b_toko as t ON t._id=a.b_t_id LEFT JOIN b_boky AS b ON b._id=t.t_b_id WHERE b._id = ? AND a.b_toko = ? AND a.b_and = ? ");
 		
         String sid = selectedVerses.get(0);
-        String[] tokens = sid.split("|");
+        String[] tokens = sid.split(":");
         
 		return database.rawQuery(q.toString(), new String[]{tokens[1], tokens[2], tokens[3]});
         
